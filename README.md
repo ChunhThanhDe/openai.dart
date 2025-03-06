@@ -2,12 +2,12 @@
 
 </br>
 <p align="center">
-<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/anasfik/openai">
-<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/anasfik/openai">
-<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/anasfik/openai?style=social">
-<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/anasfik/openai/dart.yml?label=tests">
-<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/anasfik/openai/release.yml?label=build">
-<img alt="GitHub" src="https://img.shields.io/github/license/anasfik/openai">
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/ChunhThanhDe/openai.dart">
+<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/ChunhThanhDe/openai.dart">
+<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ChunhThanhDe/openai.dart?style=social">
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/ChunhThanhDe/openai.dart/dart.yml?label=tests">
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/ChunhThanhDe/openai.dart/release.yml?label=build">
+<img alt="GitHub" src="https://img.shields.io/github/license/ChunhThanhDe/openai.dart">
 <img alt="Pub Version" src="https://img.shields.io/pub/v/dart_openai">
 <img alt="Pub Likes" src="https://img.shields.io/pub/likes/dart_openai">
 <img alt="Pub Points" src="https://img.shields.io/pub/points/dart_openai">
@@ -38,8 +38,8 @@ The package is designed to be lightweight and easy to use, so you can focus on b
 ### Thanks:
 
 Thanks to the contributors & sponsors of this project that it exists and is still maintained:
-- [Sponsors](https://github.com/sponsors/anasfik)
-- [Contributors](https://github.com/anasfik/openai/graphs/contributors)
+- [Sponsors](https://github.com/sponsors/ChunhThanhDe)
+- [Contributors](https://github.com/ChunhThanhDe/openai.dart/graphs/contributors)
 
 Consider helping this project you too.
 
@@ -808,4 +808,4 @@ Please, Just remember that any kind of help related to these tasks are welcome, 
 - Reviewing code: if it happens that there is a better way to make something happen in the SDK, please just let me know.
 - if you tried any sample of use cases, examples of yours and wanted to include it in the examples/, please go ahead.
 - Mention any updates if they exists in the API, Dart, a certain package, or even Flutter that relates to this package.
-- [Donate to the project](https://github.com/sponsors/anasfik), it will help me to keep working on it, and make it better.
+- [Donate to the project](https://github.com/sponsors/ChunhThanhDe), it will help me to keep working on it, and make it better.
