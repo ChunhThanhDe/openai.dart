@@ -1,6 +1,6 @@
 name: dart_openai_plus
 description: An open-source package that allows developers to easily integrate the power of OpenAI's state-of-the-art AI models into their Dart/Flutter applications.
-version: 1.1.0
+version: 1.0.0
 homepage: https://github.com/ChunhThanhDe/openai.dart
 repository: https://github.com/ChunhThanhDe/openai.dart
 documentation: https://github.com/ChunhThanhDe/openai.dart/blob/main/README.md
