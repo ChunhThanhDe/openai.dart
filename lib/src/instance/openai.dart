@@ -1,6 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:dart_openai/src/instance/edits/edits.dart';
-import 'package:dart_openai/src/instance/moderations/moderations.dart';
 import '../core/base/openai_client/base.dart';
 import '../core/builder/headers.dart';
 import '../core/constants/config.dart';
@@ -9,11 +7,13 @@ import '../core/utils/logger.dart';
 import 'audio/audio.dart';
 import 'chat/chat.dart';
 import 'completion/completion.dart';
+import 'edits/edits.dart';
 import 'embedding/embedding.dart';
 import 'files/files.dart';
 import 'fine_tunes/fine_tunes.dart';
 import 'images/images.dart';
 import 'model/model.dart';
+import 'moderations/moderations.dart';
 
 /// The main class of the package. It is a singleton class, so you can only have one instance of it.
 /// You can also access the instance by calling the [OpenAI.instance] getter.

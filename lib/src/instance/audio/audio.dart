@@ -1,9 +1,9 @@
-import 'package:dart_openai/src/core/builder/base_api_url.dart';
-import 'package:dart_openai/src/core/networking/client.dart';
+import 'package:dart_openai_plus/src/core/builder/base_api_url.dart';
+import 'package:dart_openai_plus/src/core/networking/client.dart';
 
 import 'dart:io';
 
-import '../../../dart_openai.dart';
+import '../../../dart_openai_plus.dart';
 import '../../core/base/audio/audio.dart';
 import '../../core/constants/strings.dart';
 import '../../core/utils/logger.dart';
@@ -66,8 +66,7 @@ interface class OpenAIAudio implements OpenAIAudioBase {
         if (temperature != null) "temperature": temperature.toString(),
         if (language != null) "language": language,
         if (timestamp_granularities != null)
-          "timestamp_granularities[]":
-              timestamp_granularities.map((e) => e.name).join(","),
+          "timestamp_granularities[]": timestamp_granularities.map((e) => e.name).join(","),
       },
       onSuccess: (Map<String, dynamic> response) {
         return OpenAIAudioModel.fromMap(response);

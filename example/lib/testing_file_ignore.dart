@@ -1,8 +1,7 @@
-import 'package:dart_openai/dart_openai.dart';
+import 'package:dart_openai_plus/dart_openai_plus.dart';
 
 void main() async {
-  Stream<OpenAIStreamCompletionModel> completionStream =
-      OpenAI.instance.completion.createStream(
+  Stream<OpenAIStreamCompletionModel> completionStream = OpenAI.instance.completion.createStream(
     model: "text-davinci-003",
     prompt: "Github is ",
     maxTokens: 100,

@@ -8,10 +8,10 @@
 <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/ChunhThanhDe/openai.dart/dart.yml?label=tests">
 <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/ChunhThanhDe/openai.dart/release.yml?label=build">
 <img alt="GitHub" src="https://img.shields.io/github/license/ChunhThanhDe/openai.dart">
-<img alt="Pub Version" src="https://img.shields.io/pub/v/dart_openai">
-<img alt="Pub Likes" src="https://img.shields.io/pub/likes/dart_openai">
-<img alt="Pub Points" src="https://img.shields.io/pub/points/dart_openai">
-<img alt="Pub Popularity" src="https://img.shields.io/pub/popularity/dart_openai">
+<img alt="Pub Version" src="https://img.shields.io/pub/v/dart_openai_plus">
+<img alt="Pub Likes" src="https://img.shields.io/pub/likes/dart_openai_plus">
+<img alt="Pub Points" src="https://img.shields.io/pub/points/dart_openai_plus">
+<img alt="Pub Popularity" src="https://img.shields.io/pub/popularity/dart_openai_plus">
 
 </p>
 
@@ -87,7 +87,7 @@ Consider helping this project you too.
 
 # 📜 Full Documentation:
 
-For the full documentation about all members this library offers, [check here](https://pub.dev/documentation/dart_openai/latest/).
+For the full documentation about all members this library offers, [check here](https://pub.dev/documentation/dart_openai_plus/latest/).
 
 </br>
 

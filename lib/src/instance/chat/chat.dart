@@ -1,5 +1,5 @@
-import 'package:dart_openai/src/core/builder/base_api_url.dart';
-import 'package:dart_openai/src/core/networking/client.dart';
+import 'package:dart_openai_plus/src/core/builder/base_api_url.dart';
+import 'package:dart_openai_plus/src/core/networking/client.dart';
 
 import '../../core/base/chat/chat.dart';
 import '../../core/constants/strings.dart';
@@ -91,8 +91,7 @@ interface class OpenAIChat implements OpenAIChatBase {
       body: {
         "model": model,
         "messages": messages.map((message) => message.toMap()).toList(),
-        if (tools != null)
-          "tools": tools.map((tool) => tool.toMap()).toList(growable: false),
+        if (tools != null) "tools": tools.map((tool) => tool.toMap()).toList(growable: false),
         if (toolChoice != null) "tool_choice": toolChoice,
         if (temperature != null) "temperature": temperature,
         if (topP != null) "top_p": topP,
@@ -187,8 +186,7 @@ interface class OpenAIChat implements OpenAIChatBase {
         "model": model,
         "stream": true,
         "messages": messages.map((message) => message.toMap()).toList(),
-        if (tools != null)
-          "tools": tools.map((tool) => tool.toMap()).toList(growable: false),
+        if (tools != null) "tools": tools.map((tool) => tool.toMap()).toList(growable: false),
         if (toolChoice != null) "tool_choice": toolChoice,
         if (temperature != null) "temperature": temperature,
         if (topP != null) "top_p": topP,
@@ -234,8 +232,7 @@ interface class OpenAIChat implements OpenAIChatBase {
         "model": model,
         "stream": true,
         "messages": messages.map((message) => message.toMap()).toList(),
-        if (tools != null)
-          "tools": tools.map((tool) => tool.toMap()).toList(growable: false),
+        if (tools != null) "tools": tools.map((tool) => tool.toMap()).toList(growable: false),
         if (toolChoice != null) "tool_choice": toolChoice,
         if (temperature != null) "temperature": temperature,
         if (topP != null) "top_p": topP,

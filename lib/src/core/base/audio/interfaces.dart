@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import '../../../../dart_openai.dart';
+import '../../../../dart_openai_plus.dart';
 
 abstract class CreateInterface {
   Future<File> createSpeech({

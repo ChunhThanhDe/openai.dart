@@ -1,7 +1,7 @@
-import 'package:dart_openai/dart_openai.dart';
-import 'package:dart_openai/src/core/builder/base_api_url.dart';
-import 'package:dart_openai/src/core/networking/client.dart';
-import 'package:dart_openai/src/instance/model/model.dart';
+import 'package:dart_openai_plus/dart_openai_plus.dart';
+import 'package:dart_openai_plus/src/core/builder/base_api_url.dart';
+import 'package:dart_openai_plus/src/core/networking/client.dart';
+import 'package:dart_openai_plus/src/instance/model/model.dart';
 import 'package:meta/meta.dart';
 
 import '../../core/base/fine_tunes/base.dart';
@@ -91,17 +91,14 @@ interface class OpenAIFineTunes implements OpenAIFineTunesBase {
         if (model != null) "model": model,
         if (nEpoches != null) "n_epochs": nEpoches,
         if (batchSize != null) "batch_size": batchSize,
-        if (learningRateMultiplier != null)
-          "learning_rate_multiplier": learningRateMultiplier,
+        if (learningRateMultiplier != null) "learning_rate_multiplier": learningRateMultiplier,
         if (promptLossWeight != null) "prompt_loss_weight": promptLossWeight,
         if (computeClassificationMetrics != null)
           "compute_classification_metrics": computeClassificationMetrics,
-        if (classificationNClass != null)
-          "classification_n_class": classificationNClass,
+        if (classificationNClass != null) "classification_n_class": classificationNClass,
         if (classificationPositiveClass != null)
           "classification_positive_class": classificationPositiveClass,
-        if (classificationBetas != null)
-          "classification_betas": classificationBetas,
+        if (classificationBetas != null) "classification_betas": classificationBetas,
         if (suffix != null) "suffix": suffix,
       },
       to: BaseApiUrlBuilder.build(endpoint),

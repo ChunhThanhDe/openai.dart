@@ -1,4 +1,4 @@
-import 'package:dart_openai/src/core/models/model/model.dart';
+import 'package:dart_openai_plus/src/core/models/model/model.dart';
 
 import 'package:http/http.dart' as http;
 

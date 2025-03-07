@@ -1,20 +1,20 @@
 import "dart:async";
 import "dart:convert";
 import "dart:io";
-import "package:dart_openai/src/core/constants/config.dart";
-import "package:dart_openai/src/core/utils/extensions.dart";
+import "package:dart_openai_plus/src/core/constants/config.dart";
+import "package:dart_openai_plus/src/core/utils/extensions.dart";
 
-import 'package:dart_openai/dart_openai.dart';
-import "package:dart_openai/src/core/builder/headers.dart";
-import "package:dart_openai/src/core/utils/logger.dart";
+import 'package:dart_openai_plus/dart_openai_plus.dart';
+import "package:dart_openai_plus/src/core/builder/headers.dart";
+import "package:dart_openai_plus/src/core/utils/logger.dart";
 import "package:http/http.dart" as http;
 import "package:meta/meta.dart";
 
 import '../constants/strings.dart';
 
 import "../utils/streaming_http_client_default.dart"
-    if (dart.library.js) 'package:dart_openai/src/core/utils/streaming_http_client_web.dart'
-    if (dart.library.io) 'package:dart_openai/src/core/utils/streaming_http_client_io.dart';
+    if (dart.library.js) 'package:dart_openai_plus/src/core/utils/streaming_http_client_web.dart'
+    if (dart.library.io) 'package:dart_openai_plus/src/core/utils/streaming_http_client_io.dart';
 
 /// Handling exceptions returned by OpenAI Stream API.
 final class _OpenAIChatStreamSink implements EventSink<String> {
@@ -66,8 +66,7 @@ final class _OpenAIChatStreamSink implements EventSink<String> {
   }
 }
 
-class OpenAIChatStreamLineSplitter
-    extends StreamTransformerBase<String, String> {
+class OpenAIChatStreamLineSplitter extends StreamTransformerBase<String, String> {
   const OpenAIChatStreamLineSplitter();
 
   Stream<String> bind(Stream<String> stream) {
@@ -97,9 +96,7 @@ abstract class OpenAINetworkingClient {
     final headers = HeadersBuilder.build();
 
     final response = client == null
-        ? await http
-            .get(uri, headers: headers)
-            .timeout(OpenAIConfig.requestsTimeOut)
+        ? await http.get(uri, headers: headers).timeout(OpenAIConfig.requestsTimeOut)
         : await client.get(uri, headers: headers);
 
     OpenAILogger.logResponseBody(response);
@@ -119,8 +116,7 @@ abstract class OpenAINetworkingClient {
     OpenAILogger.decodedSuccessfully();
 
     if (doesErrorExists(decodedBody)) {
-      final Map<String, dynamic> error =
-          decodedBody[OpenAIStrings.errorFieldKey];
+      final Map<String, dynamic> error = decodedBody[OpenAIStrings.errorFieldKey];
       final message = error[OpenAIStrings.messageFieldKey];
       final statusCode = response.statusCode;
 
@@ -260,13 +256,10 @@ abstract class OpenAINetworkingClient {
       final fileExtensionFromBodyResponseFormat =
           response.headers[fileTypeHeader]?.split("/").last ?? "mp3";
 
-      final fileName =
-          outputFileName + "." + fileExtensionFromBodyResponseFormat;
+      final fileName = outputFileName + "." + fileExtensionFromBodyResponseFormat;
 
       File file = File(
-        "${outputDirectory != null ? outputDirectory.path : ''}" +
-            "/" +
-            fileName,
+        "${outputDirectory != null ? outputDirectory.path : ''}" + "/" + fileName,
       );
 
       OpenAILogger.creatingFile(fileName);
@@ -321,8 +314,7 @@ abstract class OpenAINetworkingClient {
     OpenAILogger.decodedSuccessfully();
 
     if (doesErrorExists(decodedBody)) {
-      final Map<String, dynamic> error =
-          decodedBody[OpenAIStrings.errorFieldKey];
+      final Map<String, dynamic> error = decodedBody[OpenAIStrings.errorFieldKey];
       final message = error[OpenAIStrings.messageFieldKey];
       final statusCode = response.statusCode;
 
@@ -358,21 +350,16 @@ abstract class OpenAINetworkingClient {
 
         try {
           OpenAILogger.startReadStreamResponse();
-          final stream = respond.stream
-              .transform(utf8.decoder)
-              .transform(openAIChatStreamLineSplitter);
+          final stream =
+              respond.stream.transform(utf8.decoder).transform(openAIChatStreamLineSplitter);
 
           try {
             String respondData = "";
-            await for (final value
-                in stream.where((event) => event.isNotEmpty)) {
+            await for (final value in stream.where((event) => event.isNotEmpty)) {
               final data = value;
               respondData += data;
 
-              final dataLines = data
-                  .split("\n")
-                  .where((element) => element.isNotEmpty)
-                  .toList();
+              final dataLines = data.split("\n").where((element) => element.isNotEmpty).toList();
 
               for (String line in dataLines) {
                 if (line.startsWith(OpenAIStrings.streamResponseStart)) {
@@ -392,8 +379,7 @@ abstract class OpenAINetworkingClient {
                 } catch (error) {/** ignore, data has not been received */}
 
                 if (doesErrorExists(decodedData)) {
-                  final error = decodedData[OpenAIStrings.errorFieldKey]
-                      as Map<String, dynamic>;
+                  final error = decodedData[OpenAIStrings.errorFieldKey] as Map<String, dynamic>;
                   var message = error[OpenAIStrings.messageFieldKey] as String;
                   message = message.isEmpty ? jsonEncode(error) : message;
                   final statusCode = respond.statusCode;
@@ -446,9 +432,7 @@ abstract class OpenAINetworkingClient {
 
     final file = await http.MultipartFile.fromPath("image", image.path);
 
-    final maskFile = mask != null
-        ? await http.MultipartFile.fromPath("mask", mask.path)
-        : null;
+    final maskFile = mask != null ? await http.MultipartFile.fromPath("mask", mask.path) : null;
 
     request.files.add(file);
 
@@ -471,8 +455,7 @@ abstract class OpenAINetworkingClient {
     OpenAILogger.decodedSuccessfully();
 
     if (doesErrorExists(decodedBody)) {
-      final Map<String, dynamic> error =
-          decodedBody[OpenAIStrings.errorFieldKey];
+      final Map<String, dynamic> error = decodedBody[OpenAIStrings.errorFieldKey];
 
       final message = error[OpenAIStrings.messageFieldKey];
       final statusCode = response.statusCode;
@@ -524,8 +507,7 @@ abstract class OpenAINetworkingClient {
     OpenAILogger.decodedSuccessfully();
 
     if (doesErrorExists(decodedBody)) {
-      final Map<String, dynamic> error =
-          decodedBody[OpenAIStrings.errorFieldKey];
+      final Map<String, dynamic> error = decodedBody[OpenAIStrings.errorFieldKey];
       final message = error[OpenAIStrings.messageFieldKey];
       final statusCode = response.statusCode;
 
@@ -583,8 +565,7 @@ abstract class OpenAINetworkingClient {
 
     OpenAILogger.decodedSuccessfully();
     if (doesErrorExists(resultBody)) {
-      final Map<String, dynamic> error =
-          resultBody[OpenAIStrings.errorFieldKey];
+      final Map<String, dynamic> error = resultBody[OpenAIStrings.errorFieldKey];
       final message = error[OpenAIStrings.messageFieldKey];
       final statusCode = response.statusCode;
 
@@ -610,9 +591,7 @@ abstract class OpenAINetworkingClient {
     final uri = Uri.parse(from);
 
     final response = client == null
-        ? await http
-            .delete(uri, headers: headers)
-            .timeout(OpenAIConfig.requestsTimeOut)
+        ? await http.delete(uri, headers: headers).timeout(OpenAIConfig.requestsTimeOut)
         : await client.delete(uri, headers: headers);
 
     OpenAILogger.logResponseBody(response);
@@ -626,8 +605,7 @@ abstract class OpenAINetworkingClient {
     OpenAILogger.decodedSuccessfully();
 
     if (doesErrorExists(decodedBody)) {
-      final Map<String, dynamic> error =
-          decodedBody[OpenAIStrings.errorFieldKey];
+      final Map<String, dynamic> error = decodedBody[OpenAIStrings.errorFieldKey];
       final String message = error[OpenAIStrings.messageFieldKey];
       final statusCode = response.statusCode;
 

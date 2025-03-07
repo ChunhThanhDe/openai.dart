@@ -1,4 +1,4 @@
-import 'package:dart_openai/src/core/base/entity/interfaces/enpoint.dart';
+import 'package:dart_openai_plus/src/core/base/entity/interfaces/enpoint.dart';
 
 import '../../enum.dart';
 import 'interfaces/create.dart';
@@ -6,11 +6,7 @@ import 'interfaces/edit.dart';
 import 'interfaces/variations.dart';
 
 abstract class OpenAIImagesBase
-    implements
-        EndpointInterface,
-        CreateInterface,
-        EditInterface,
-        VariationInterface {}
+    implements EndpointInterface, CreateInterface, EditInterface, VariationInterface {}
 
 extension SizeToStingExtension on OpenAIImageSize {
   String get value {

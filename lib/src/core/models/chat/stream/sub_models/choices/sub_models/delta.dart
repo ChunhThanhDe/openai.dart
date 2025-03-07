@@ -1,4 +1,4 @@
-import 'package:dart_openai/dart_openai.dart';
+import 'package:dart_openai_plus/dart_openai_plus.dart';
 
 import '../../../../etc/message_adapter.dart';
 
@@ -42,8 +42,7 @@ final class OpenAIStreamChatCompletionChoiceDeltaModel {
   ) {
     return OpenAIStreamChatCompletionChoiceDeltaModel(
       role: json['role'] != null
-          ? OpenAIChatMessageRole.values
-              .firstWhere((role) => role.name == json['role'])
+          ? OpenAIChatMessageRole.values.firstWhere((role) => role.name == json['role'])
           : null,
       content: json['content'] != null
           ? OpenAIMessageDynamicContentFromFieldAdapter.dynamicContentFromField(
