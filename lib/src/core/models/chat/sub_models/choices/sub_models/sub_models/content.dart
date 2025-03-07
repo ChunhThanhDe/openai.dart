@@ -69,9 +69,8 @@ class OpenAIChatCompletionChoiceMessageContentItemModel {
     return {
       "type": type,
       if (text != null) "text": text,
-      if (imageUrl != null) "image_url": imageUrl,
-      if (imageBase64 != null)
-        "image_url": {"url": "data:image/jpeg;base64,${imageBase64}"}
+      if (imageUrl != null) "image_url": {"url": imageUrl},
+      if (imageBase64 != null) "image_url": {"url": "data:image/jpeg;base64,${imageBase64}"}
     };
   }
 
@@ -89,8 +88,7 @@ class OpenAIChatCompletionChoiceMessageContentItemModel {
 
   @override
   String toString() => switch (type) {
-        'text' =>
-          'OpenAIChatCompletionChoiceMessageContentItemModel(type: $type, text: $text)',
+        'text' => 'OpenAIChatCompletionChoiceMessageContentItemModel(type: $type, text: $text)',
         'image' =>
           'OpenAIChatCompletionChoiceMessageContentItemModel(type: $type, imageUrl: $imageUrl)',
         'image_base64' =>
